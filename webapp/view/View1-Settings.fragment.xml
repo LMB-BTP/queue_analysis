@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:mvc="sap.m.mvc" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog resizable="true" title="{i18n>Settings}">
+		<content>
+			<form:SimpleForm title="{i18n>SettingsFormTitle}">
+
+				<Label text="{i18n>Profile}"/>
+				<Select items="{/Profiles}"
+						enabled="{= ${Chart>/Settings/autoRefresh} === true ? false : true }"
+						selectedKey="{Chart>/Settings/profile}">
+					<core:ListItem key="{Key}" text="{Key} :: {Value}" />
+				</Select>
+
+				<Label text="{i18n>IncludeEmptyQueues}"/>
+				<Switch state="{Chart>/Settings/includeEmptyQueues}" 
+					type="Default"
+					enabled="{= ${Chart>/Settings/autoRefresh} === true ? false : true }"/>
+					
+				<Label text="{i18n>SettingsRefreshInterval}"/>
+				<StepInput value="{Chart>/Settings/refreshSeconds}" min="15" max="300" step="5"
+					enabled="{= ${Chart>/Settings/autoRefresh} === true ? false : true }" description="{i18n>SettingsSeconds}" />
+					
+				<Label text="{i18n>SettingsOnOff}"/>
+				<Switch state="{Chart>/Settings/autoRefresh}" change="handleAutoRefresh"/>
+				
+			</form:SimpleForm>
+		</content>
+		<buttons>
+			<Button type="Reject" text="Close" press="handleClosePress"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,109 @@
+<mvc:View controllerName="LMBR_CUSTOMER_APP.queue_analysis.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:data="sap.viz.ui5.data" xmlns:feed="sap.viz.ui5.controls.common.feeds" xmlns:core="sap.ui.core"
+	xmlns:layout="sap.ui.layout" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<!---->
+					<!---->
+					<!--Header Content-->
+					<!---->
+					<!---->
+					<headerContent>
+						<Button press="handleSettingsPress" icon="sap-icon://settings"/>
+						<Button press="handleInfoPress" icon="sap-icon://validate"/>
+					</headerContent>
+					<content>
+						<!---->
+						<!---->
+						<!---->
+						<!--Elements avaiable for DESKTOP-->
+						<!---->
+						<!---->
+						<!---->
+						<VBox visible="{= ${device>/system/desktop} === true ? true : false }">
+							<viz:VizFrame busy="{Chart>/Settings/busyIndicator}" id="DesktopChart01" vizType="stacked_combination" vizProperties="{Chart>/Properties/vizPropertiesChart01}" height="400px"
+								width="100%">
+								<viz:dataset>
+									<data:FlattenedDataset data="{Chart>/ChartData/Queues}">
+										<data:dimensions>
+											<data:DimensionDefinition identity="DimDefSystemId" value="{SystemId}" dataType="string"></data:DimensionDefinition>
+											<data:DimensionDefinition identity="DimDefQueueName" value="{QueueName}" dataType="string"></data:DimensionDefinition>
+											<data:DimensionDefinition identity="DimDefDirection" value="{Direction}" dataType="string"></data:DimensionDefinition>
+										</data:dimensions>
+										<data:measures>
+											<data:MeasureDefinition identity="MeaDefRedZone" name="{i18n>ChartErrorRecords}" value="{RedZone}"></data:MeasureDefinition>
+											<data:MeasureDefinition identity="MeaDefGreenZone" name="{i18n>ChartGoodRecords}" value="{GreenZone}"></data:MeasureDefinition>
+											<data:MeasureDefinition identity="MeaDefYellowZone" name="{i18n>ChartWarningRecords}" value="{YellowZone}"></data:MeasureDefinition>
+											<data:MeasureDefinition identity="MeaDefQty" name="{i18n>ChartTotalRecords}" value="{Qty}"></data:MeasureDefinition>
+										</data:measures>
+									</data:FlattenedDataset>
+								</viz:dataset>
+								<viz:feeds>
+									<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefSystemId"></feed:FeedItem>
+									<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefDirection"></feed:FeedItem>
+									<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefQueueName"></feed:FeedItem>
+									<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefRedZone"></feed:FeedItem>
+									<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefYellowZone"></feed:FeedItem>
+									<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefGreenZone"></feed:FeedItem>
+									<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefQty"></feed:FeedItem>
+								</viz:feeds>
+							</viz:VizFrame>
+							<HBox>
+								<viz:VizFrame busy="{Chart>/Settings/busyIndicator}" id="DesktopChart02" vizType="column" vizProperties="{Chart>/Properties/vizPropertiesChart02}" height="400px">
+									<viz:dataset>
+										<data:FlattenedDataset data="{Chart>/ChartData/WarningZone}">
+											<data:dimensions>
+												<data:DimensionDefinition identity="DimDefSystemId" value="{SystemId}" dataType="string"></data:DimensionDefinition>
+												<data:DimensionDefinition identity="DimDefQueueName" value="{QueueName}" dataType="string"></data:DimensionDefinition>
+												<data:DimensionDefinition identity="DimDefDirection" value="{Direction}" dataType="string"></data:DimensionDefinition>
+											</data:dimensions>
+											<data:measures>
+												<data:MeasureDefinition identity="MeaDefQty" name="{i18n>ChartTotalRecords}" value="{Qty}"></data:MeasureDefinition>
+											</data:measures>
+										</data:FlattenedDataset>
+									</viz:dataset>
+									<viz:feeds>
+										<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefSystemId"></feed:FeedItem>
+										<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefDirection"></feed:FeedItem>
+										<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefQueueName"></feed:FeedItem>
+										<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefQty"></feed:FeedItem>
+									</viz:feeds>
+								</viz:VizFrame>
+								<viz:VizFrame busy="{Chart>/Settings/busyIndicator}" id="DesktopChart03" vizType="column" vizProperties="{Chart>/Properties/vizPropertiesChart03}" height="400px">
+									<viz:dataset>
+										<data:FlattenedDataset data="{Chart>/ChartData/ErrorZone}">
+											<data:dimensions>
+												<data:DimensionDefinition identity="DimDefSystemId" value="{SystemId}" dataType="string"></data:DimensionDefinition>
+												<data:DimensionDefinition identity="DimDefQueueName" value="{QueueName}" dataType="string"></data:DimensionDefinition>
+												<data:DimensionDefinition identity="DimDefDirection" value="{Direction}" dataType="string"></data:DimensionDefinition>
+											</data:dimensions>
+											<data:measures>
+												<data:MeasureDefinition identity="MeaDefQty" name="{i18n>ChartTotalRecords}" value="{Qty}"></data:MeasureDefinition>
+											</data:measures>
+										</data:FlattenedDataset>
+									</viz:dataset>
+									<viz:feeds>
+										<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefSystemId"></feed:FeedItem>
+										<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefDirection"></feed:FeedItem>
+										<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefQueueName"></feed:FeedItem>
+										<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefQty"></feed:FeedItem>
+									</viz:feeds>
+								</viz:VizFrame>
+							</HBox>
+						</VBox>
+					</content>
+					<footer>
+						<Bar>
+							<contentRight>
+								<Label text="{i18n>LastUpdate}"/>
+								<Text text="{Chart>/Settings/lastDateTime}"/>
+							</contentRight>
+						</Bar>
+					</footer>					
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

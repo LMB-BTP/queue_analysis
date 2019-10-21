@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0" xmlns:sap="http://www.sap.com/Protocols/SAPData"
+	xmlns:ux="http://www.sap.com/Protocols/OData4SAP/UX" xmlns:gp="http://www.sap.com/Protocols/SAPData/GenericPlayer">
+	<edmx:DataServices m:DataServiceVersion="2.0" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+		<Schema Namespace="ZGW_APP_XX_0002_SRV" xmlns="http://schemas.microsoft.com/ado/2008/09/edm" sap:schema-version="1" xml:lang="en">
+			<EntityType Name="Profile" sap:content-version="1">
+				<Key><PropertyRef Name="Key"/></Key><Property Name="Key" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:unicode="false"/><Property Name="Value" Type="Edm.String" Nullable="false" MaxLength="60" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:unicode="false"/></EntityType>
+			<EntityType Name="SystemConfig" sap:content-version="1">
+				<Key><PropertyRef Name="Sysid"/></Key><Property Name="Sysid" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:unicode="false"/><Property Name="Descr" Type="Edm.String" Nullable="false" MaxLength="70" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:unicode="false"/><Property Name="Active" Type="Edm.Boolean" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:unicode="false"/><Property Name="Destination" Type="Edm.String" Nullable="false" MaxLength="32" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:unicode="false"/><Property Name="Loguser" Type="Edm.String" Nullable="false" MaxLength="12" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:unicode="false"/><Property Name="Logdate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:unicode="false"/><Property Name="Logtime" Type="Edm.Time" Nullable="false" Precision="0" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:unicode="false"/></EntityType>
+			<EntityType Name="Queue" sap:content-version="1">
+				<Key><PropertyRef Name="Profile"/><PropertyRef Name="Direction"/><PropertyRef Name="SystemId"/><PropertyRef Name="QueueName"/></Key><Property Name="Profile" Type="Edm.String" Nullable="false" MaxLength="1" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:unicode="false"/><Property Name="Direction" Type="Edm.String" Nullable="false" MaxLength="60" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:unicode="false"/><Property Name="SystemId" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:unicode="false"/><Property Name="QueueName" Type="Edm.String" Nullable="false" MaxLength="24" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:unicode="false"/><Property Name="Qty" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="0" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:unicode="false"/><Property Name="Greenzone" Type="Edm.Decimal" Nullable="false" Precision="6" Scale="0" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:unicode="false"/><Property Name="Yellowzone" Type="Edm.Decimal" Nullable="false" Precision="6" Scale="0" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:unicode="false"/><Property Name="Redzone" Type="Edm.Decimal" Nullable="false" Precision="6" Scale="0" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:unicode="false"/></EntityType>
+			<EntityContainer Name="ZGW_APP_XX_0002_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="Profiles" EntityType="ZGW_APP_XX_0002_SRV.Profile" sap:content-version="1" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false"/><EntitySet Name="SystemConfigs" EntityType="ZGW_APP_XX_0002_SRV.SystemConfig" sap:content-version="1" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false"/><EntitySet Name="Queues" EntityType="ZGW_APP_XX_0002_SRV.Queue" sap:content-version="1" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false"/></EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self"
+				href="https://gwaas-n3b66d216.br1.hana.ondemand.com:443/sap/opu/odata/SAP/ZGW_APP_XX_0002_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
+				href="https://gwaas-n3b66d216.br1.hana.ondemand.com:443/sap/opu/odata/SAP/ZGW_APP_XX_0002_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
