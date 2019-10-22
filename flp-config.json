@@ -1,0 +1,35 @@
+{
+    "application": {
+        "id": "",
+        "title": "LMBR_CUSTOMER_APP.queue_analysis.queue_analysis",
+        "description": "Queue Cross Analysis",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/",
+        "appUrl": "#queue_analysis-Display",
+        "navigationComponentName": "LMBR_CUSTOMER_APP.queue_analysis",
+        "intentSemanticObject": "queue_analysis",
+        "intentAction": "Display",
+        "html5ApplicationName": "queueanalysis",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "f6b52d7e-a996-4c37-9e64-f2712e82da16-1567176107854"
+        ],
+        "contentPackages": [
+            "cedf6c06-0e3d-4435-8e75-4368cb76aec4-1567176035626"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "Queue Cross Analysis",
+        "subtitle": "SAP Queue Cross Analysis",
+        "searchKeywords": "Queue Cross Analysis,SAP Queue Cross Analysis",
+        "displayIconUrl": "sap-icon://increase-line-height",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}
