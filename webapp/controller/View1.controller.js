@@ -56,6 +56,7 @@ sap.ui.define([
 					plotArea: {
 						colorPalette: ["#BB0000", "#E78C07", "#2B7D2B", "#3F5161"],
 						dataLabel: {
+							hideWhenOverlap: true,
 							visible: false
 						},
 
@@ -311,26 +312,29 @@ sap.ui.define([
 
 				// Disable Busy Indicator
 				oJsonModel.setProperty("/Settings/busyIndicator", false);
+				
+				debugger;
 
 				// Run all records returned
 				for (var i = 0; i < oData.results.length; i++) {
 
 					// Calculate Yellow Zone
 					var _yellowZone = Number(oData.results[i].GreenZone) + Number(oData.results[i].YellowZone);
+					var _qtyCurrent = Number(oData.results[i].Qty);
 
 					// Queues Record
 					if (oJsonModel.getProperty("/Settings/includeEmptyQueues"))
 						oChartData.Queues.push(oData.results[i]);
-					else if (oData.results[i].Qty > 0)
+					else if (_qtyCurrent > 0)
 						oChartData.Queues.push(oData.results[i]);
 
 					// Warning Zone Records
-					if (oData.results[i].Qty > oData.results[i].GreenZone &&
-						oData.results[i].Qty <= _yellowZone) {
+					if (_qtyCurrent > oData.results[i].GreenZone &&
+						_qtyCurrent <= _yellowZone) {
 						oChartData.WarningZone.push(oData.results[i]);
 
 						// Error Zone Records
-					} else if (oData.results[i].Qty > _yellowZone) {
+					} else if (_qtyCurrent > _yellowZone) {
 						oChartData.ErrorZone.push(oData.results[i]);
 					}
 
