@@ -312,8 +312,6 @@ sap.ui.define([
 
 				// Disable Busy Indicator
 				oJsonModel.setProperty("/Settings/busyIndicator", false);
-				
-				debugger;
 
 				// Run all records returned
 				for (var i = 0; i < oData.results.length; i++) {
