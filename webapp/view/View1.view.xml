@@ -6,9 +6,7 @@
 			<pages>
 				<Page id="page" title="{i18n>title}">
 					<!---->
-					<!---->
 					<!--Header Content-->
-					<!---->
 					<!---->
 					<headerContent>
 						<Button press="handleSettingsPress" icon="sap-icon://settings"/>
@@ -16,84 +14,39 @@
 					</headerContent>
 					<content>
 						<!---->
-						<!---->
-						<!---->
 						<!--Elements avaiable for DESKTOP-->
 						<!---->
-						<!---->
-						<!---->
 						<VBox visible="{= ${device>/system/desktop} === true ? true : false }">
-							<viz:VizFrame busy="{Chart>/Settings/busyIndicator}" id="DesktopChart01" vizType="stacked_combination" vizProperties="{Chart>/Properties/vizPropertiesChart01}" height="400px"
-								width="100%">
-								<viz:dataset>
-									<data:FlattenedDataset data="{Chart>/ChartData/Queues}">
-										<data:dimensions>
-											<data:DimensionDefinition identity="DimDefSystemId" value="{SystemId}" dataType="string"></data:DimensionDefinition>
-											<data:DimensionDefinition identity="DimDefQueueName" value="{QueueName}" dataType="string"></data:DimensionDefinition>
-											<data:DimensionDefinition identity="DimDefDirection" value="{Direction}" dataType="string"></data:DimensionDefinition>
-										</data:dimensions>
-										<data:measures>
-											<data:MeasureDefinition identity="MeaDefRedZone" name="{i18n>ChartErrorRecords}" value="{RedZone}"></data:MeasureDefinition>
-											<data:MeasureDefinition identity="MeaDefGreenZone" name="{i18n>ChartGoodRecords}" value="{GreenZone}"></data:MeasureDefinition>
-											<data:MeasureDefinition identity="MeaDefYellowZone" name="{i18n>ChartWarningRecords}" value="{YellowZone}"></data:MeasureDefinition>
-											<data:MeasureDefinition identity="MeaDefQty" name="{i18n>ChartTotalRecords}" value="{Qty}"></data:MeasureDefinition>
-										</data:measures>
-									</data:FlattenedDataset>
-								</viz:dataset>
-								<viz:feeds>
-									<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefSystemId"></feed:FeedItem>
-									<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefDirection"></feed:FeedItem>
-									<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefQueueName"></feed:FeedItem>
-									<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefRedZone"></feed:FeedItem>
-									<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefYellowZone"></feed:FeedItem>
-									<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefGreenZone"></feed:FeedItem>
-									<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefQty"></feed:FeedItem>
-								</viz:feeds>
-							</viz:VizFrame>
 							<HBox>
-								<viz:VizFrame busy="{Chart>/Settings/busyIndicator}" id="DesktopChart02" vizType="column" vizProperties="{Chart>/Properties/vizPropertiesChart02}" height="400px">
-									<viz:dataset>
-										<data:FlattenedDataset data="{Chart>/ChartData/WarningZone}">
-											<data:dimensions>
-												<data:DimensionDefinition identity="DimDefSystemId" value="{SystemId}" dataType="string"></data:DimensionDefinition>
-												<data:DimensionDefinition identity="DimDefQueueName" value="{QueueName}" dataType="string"></data:DimensionDefinition>
-												<data:DimensionDefinition identity="DimDefDirection" value="{Direction}" dataType="string"></data:DimensionDefinition>
-											</data:dimensions>
-											<data:measures>
-												<data:MeasureDefinition identity="MeaDefQty" name="{i18n>ChartTotalRecords}" value="{Qty}"></data:MeasureDefinition>
-											</data:measures>
-										</data:FlattenedDataset>
-									</viz:dataset>
-									<viz:feeds>
-										<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefSystemId"></feed:FeedItem>
-										<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefDirection"></feed:FeedItem>
-										<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefQueueName"></feed:FeedItem>
-										<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefQty"></feed:FeedItem>
-									</viz:feeds>
-								</viz:VizFrame>
-								<viz:VizFrame busy="{Chart>/Settings/busyIndicator}" id="DesktopChart03" vizType="column" vizProperties="{Chart>/Properties/vizPropertiesChart03}" height="400px">
-									<viz:dataset>
-										<data:FlattenedDataset data="{Chart>/ChartData/ErrorZone}">
-											<data:dimensions>
-												<data:DimensionDefinition identity="DimDefSystemId" value="{SystemId}" dataType="string"></data:DimensionDefinition>
-												<data:DimensionDefinition identity="DimDefQueueName" value="{QueueName}" dataType="string"></data:DimensionDefinition>
-												<data:DimensionDefinition identity="DimDefDirection" value="{Direction}" dataType="string"></data:DimensionDefinition>
-											</data:dimensions>
-											<data:measures>
-												<data:MeasureDefinition identity="MeaDefQty" name="{i18n>ChartTotalRecords}" value="{Qty}"></data:MeasureDefinition>
-											</data:measures>
-										</data:FlattenedDataset>
-									</viz:dataset>
-									<viz:feeds>
-										<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefSystemId"></feed:FeedItem>
-										<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefDirection"></feed:FeedItem>
-										<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefQueueName"></feed:FeedItem>
-										<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefQty"></feed:FeedItem>
-									</viz:feeds>
-								</viz:VizFrame>
+								<core:Fragment id="DesktopChart03" fragmentName="LMBR_CUSTOMER_APP.queue_analysis.view.View1-Chart03" type="XML"></core:Fragment>
+								<core:Fragment id="DesktopChart02" fragmentName="LMBR_CUSTOMER_APP.queue_analysis.view.View1-Chart02" type="XML"></core:Fragment>
 							</HBox>
+							<core:Fragment id="DesktopChart01" fragmentName="LMBR_CUSTOMER_APP.queue_analysis.view.View1-Chart01" type="XML"></core:Fragment>
 						</VBox>
+						<!---->
+						<!--Elements avaiable for MOBILE-->
+						<!---->
+						<layout:BlockLayout visible="{= ${device>/system/desktop} === true ? false : true }">
+							<layout:BlockLayoutRow>
+								<layout:BlockLayoutCell width="100%">
+									<core:Fragment id="MobileChart03" fragmentName="LMBR_CUSTOMER_APP.queue_analysis.view.View1-Chart03" type="XML"></core:Fragment>
+								</layout:BlockLayoutCell>
+							</layout:BlockLayoutRow>
+							<layout:BlockLayoutRow>
+								<layout:BlockLayoutCell width="100%">
+									<core:Fragment id="MobileChart02" fragmentName="LMBR_CUSTOMER_APP.queue_analysis.view.View1-Chart02" type="XML"></core:Fragment>
+								</layout:BlockLayoutCell>
+							</layout:BlockLayoutRow>
+							<layout:BlockLayoutRow>
+								<layout:BlockLayoutCell width="100%">
+									<core:Fragment id="MobileChart01" fragmentName="LMBR_CUSTOMER_APP.queue_analysis.view.View1-Chart01" type="XML"></core:Fragment>
+								</layout:BlockLayoutCell>
+							</layout:BlockLayoutRow>
+						</layout:BlockLayout>						
 					</content>
+					<!---->
+					<!--Footer Content-->
+					<!---->
 					<footer>
 						<Bar>
 							<contentRight>
@@ -101,7 +54,7 @@
 								<Text text="{Chart>/Settings/lastDateTime}"/>
 							</contentRight>
 						</Bar>
-					</footer>					
+					</footer>
 				</Page>
 			</pages>
 		</App>

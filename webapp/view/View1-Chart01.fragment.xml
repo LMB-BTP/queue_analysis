@@ -1,0 +1,32 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:mvc="sap.m.mvc" xmlns:viz="sap.viz.ui5.controls" xmlns:data="sap.viz.ui5.data"
+	xmlns:feed="sap.viz.ui5.controls.common.feeds" xmlns:core="sap.ui.core">
+
+		<viz:VizFrame busy="{Chart>/Settings/busyIndicator}" id="Chart01" vizType="stacked_combination"
+			vizProperties="{Chart>/Properties/vizPropertiesChart01}" height="400px" width="100%">
+			<viz:dataset>
+				<data:FlattenedDataset data="{Chart>/ChartData/Queues}">
+					<data:dimensions>
+						<data:DimensionDefinition identity="DimDefSystemId" value="{SystemId}" dataType="string"></data:DimensionDefinition>
+						<data:DimensionDefinition identity="DimDefQueueName" value="{QueueName}" dataType="string"></data:DimensionDefinition>
+						<data:DimensionDefinition identity="DimDefDirection" value="{Direction}" dataType="string"></data:DimensionDefinition>
+					</data:dimensions>
+					<data:measures>
+						<data:MeasureDefinition identity="MeaDefRedZone" name="{i18n>ChartErrorRecords}" value="{RedZone}"></data:MeasureDefinition>
+						<data:MeasureDefinition identity="MeaDefGreenZone" name="{i18n>ChartGoodRecords}" value="{GreenZone}"></data:MeasureDefinition>
+						<data:MeasureDefinition identity="MeaDefYellowZone" name="{i18n>ChartWarningRecords}" value="{YellowZone}"></data:MeasureDefinition>
+						<data:MeasureDefinition identity="MeaDefQty" name="{i18n>ChartTotalRecords}" value="{Qty}"></data:MeasureDefinition>
+					</data:measures>
+				</data:FlattenedDataset>
+			</viz:dataset>
+			<viz:feeds>
+				<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefSystemId"></feed:FeedItem>
+				<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefDirection"></feed:FeedItem>
+				<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefQueueName"></feed:FeedItem>
+				<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefRedZone"></feed:FeedItem>
+				<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefYellowZone"></feed:FeedItem>
+				<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefGreenZone"></feed:FeedItem>
+				<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefQty"></feed:FeedItem>
+			</viz:feeds>
+		</viz:VizFrame>
+
+</core:FragmentDefinition>
