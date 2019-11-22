@@ -4,7 +4,7 @@
 			<form:SimpleForm title="{i18n>InfoFormTitle}">
 				<List items="{Chart>/InfoSystemConfig}">
 					<StandardListItem title="{Chart>Sysid}" 
-					                  icon="{= ${Chart>Active} === true ? 'sap-icon://accept' : 'sap-icon://cancel' }"
+					                  icon="{= ${Chart>Active} === 'X' ? 'sap-icon://accept' : 'sap-icon://cancel' }"
 									  infoState="{= ${Chart>Active} === true ? 'Success' : 'None' }" 
 									  description="{Chart>Descr}" 
 									  info="{Chart>Destination}"/>
